@@ -49,6 +49,7 @@ nav#timeline li, .description {
 /* Applied to the active panel */
 nav#timeline li:hover {
 	-webkit-filter: saturate(0);
+	-webkit-transform: translate3d(0, 0, 0);
 }
 
 nav#timeline li:hover .description {
