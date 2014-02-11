@@ -1,0 +1,1 @@
+use webkitRequestAnimationFrame to enhance scrolling/slide animation
