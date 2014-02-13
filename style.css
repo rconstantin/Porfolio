@@ -39,7 +39,7 @@ nav#timeline ol {
 nav#timeline li {
 	position: absolute; /* Absolute positioning to enable JS animation via style.left */
 	height: 100%;
-	width: 1920px; /* Width of individual backgrounds */
+	width: 2060px; /* 1920px Width of individual backgrounds */
 }
 
 nav#timeline li, .description {
@@ -48,8 +48,13 @@ nav#timeline li, .description {
 
 /* Applied to the active panel */
 nav#timeline li:hover {
-	-webkit-filter: saturate(0);
+/*	-webkit-filter: saturate(0);
+	-webkit-transform: translate3d(0, 0, 0);*/
+	cursor: pointer;
+	opacity: 1;
 	-webkit-transform: translate3d(0, 0, 0);
+	-webkit-transform: translateX(-25px);
+}
 }
 
 nav#timeline li:hover .description {
@@ -60,11 +65,13 @@ nav#timeline li:hover .description {
 /* Applied to the active panel and all to the left */
 .slideLeft{
 	-webkit-transform: translateX(-25px);
+	opacity: 0.5;
 }
 
 /* Applied to the active panel and all to the right */
 .slideRight {
 	-webkit-transform: translateX(25px);
+	opacity: 0.5;
 }
 
 .description {

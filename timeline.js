@@ -43,7 +43,7 @@ function scroll(event) {
 
     animationId = webkitRequestAnimationFrame(scroll,event);
 	
-	var buffer = window.innerWidth/4;
+	var buffer = window.innerWidth/6;
 	
 	// distanceToCenter = Math.abs(window.innerWidth/2-mouseX);
     // speed = distanceToCenter/(window.innerWidth/2);
