@@ -34,8 +34,8 @@ for (i = 0; i < projects.length; i++) {
 	// RC: slide here is the function reference for onmouseover for projects[i]
 	projects[i].onmouseover = slide; // Slide via highlight
 	// add scalloped hover behavior ala Apple site
-	//projects[i].addEventListener("mousemove", mouseOverHandler, true);
-	//projects[i].addEventListener("mouseLeave", mouseOutHandler, false);
+	projects[i].addEventListener("mouseover", mouseOverHandler, true);
+	projects[i].addEventListener("mouseout", mouseOutHandler, false);
 }
 
 // Global access to the timeline container
