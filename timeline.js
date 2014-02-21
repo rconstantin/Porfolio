@@ -33,6 +33,9 @@ projects = Array.prototype.slice.call(projects);
 for (i = 0; i < projects.length; i++) {
 	// RC: slide here is the function reference for onmouseover for projects[i]
 	projects[i].onmouseover = slide; // Slide via highlight
+	// add scalloped hover behavior ala Apple site
+	//projects[i].addEventListener("mousemove", mouseOverHandler, true);
+	//projects[i].addEventListener("mouseLeave", mouseOutHandler, false);
 }
 
 // Global access to the timeline container
@@ -48,8 +51,9 @@ function scroll(event) {
 	// distanceToCenter = Math.abs(window.innerWidth/2-mouseX);
     // speed = distanceToCenter/(window.innerWidth/2);
     // simplicity
+    
     speed = 1;
-	
+
 	if (mouseX < buffer) {
 		scrolling = true;
 		scrollLeft(speed);
@@ -63,7 +67,7 @@ function scroll(event) {
 		//window.clearInterval(scrollTimeline);
 		//scrollTimeline = null;
 		webkitCancelAnimationFrame(animationId);
-		count = 0;
+		animationId = null;
 	}
 }
 
@@ -85,7 +89,7 @@ function scrollRight(speed) {
 
 function slide(event)
 {
-	
+	console.log('slideEvent', event)
 	for (i = 0; i < projects.length; i++) {
 		if (i <= projects.indexOf(this)) {
 			projects[i].classList.add("slideLeft");
@@ -101,10 +105,37 @@ function slide(event)
 
 function unslide(event) 
 {
-	
+	console.log('UnslideEvent', event)
 	for (i = 0; i < projects.length; i++) {
 		projects[i].classList.remove("slideRight");
 		projects[i].classList.remove("slideLeft");
 	}
 	
+}
+
+function mouseOverHandler(event){
+	console.log('mouseOverEvent', event)
+	for (i = 0; i < projects.length; i++) {
+		if (projects[i] === this) {
+			projects[i].classList.remove("unhover");
+			projects[i].classList.add("hover");
+		}
+		else {
+			projects[i].classList.remove('hover');
+			projects[i].classList.add("unhover");
+		}
+	}
+}
+
+function mouseOutHandler(event){
+	for (i = 0; i < projects.length; i++) {
+		if (projects[i] === this) {
+			projects[i].classList.remove('hover');
+			projects[i].classList.add("unhover");
+		}/*
+		else {
+			projects[i].classList.remove('hover');
+			projects[i].classList.add("unhover");
+		}*/
+	}
 }

@@ -17,6 +17,9 @@ html, body {
 	background: url("./hero.jpg")
 }
 
+#Countdown {
+	-webkit-transform:rotate(90deg);
+}
 nav#timeline {
 	position: relative;
 	left: 0%; /* Set left explicitly to access via .style.left in JS */
@@ -55,7 +58,6 @@ nav#timeline li:hover {
 	-webkit-transform: translate3d(0, 0, 0);
 	-webkit-transform: translateX(-25px);
 }
-}
 
 nav#timeline li:hover .description {
 	color: #CCC;
@@ -73,7 +75,12 @@ nav#timeline li:hover .description {
 	-webkit-transform: translateX(25px);
 	opacity: 0.5;
 }
-
+.hover {
+	opacity: 1;
+}
+.unhover {
+	opacity: 0.5;
+}
 .description {
 	position: relative;
 	text-align: center;
